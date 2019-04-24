@@ -3,15 +3,17 @@ EKS Deployment step
 STEP1: EKS CLUSTER CREATION
 1. Create EKS Service Role
 2. Create VPC using CloudFormation Template
-  <code>
   https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/amazon-eks-vpc-sample.yaml
-  </code>
 3. Go to EKS Console and Create EKS Cluster
 
--- Prepare a machine (probably EC2) to install kubectl and manage your cluster
--- Don't use Cloud9, STEP2 will failed because Cloud9 rotate credentials (secret/access key) and this is not supported by kubectl
--- Testing was done using EC2 deployed into the same VPC running EKS Cluster
--- If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials
+Next step onwards is to prepare a client machine to install kubectl and manage your EKS Cluster/WorkerNodes, 
+you can use your laptop, or using EC2 or simplest one is Cloud9
+
+IMPORTANT! If you Cloud9 by default STEP2 will failed because Cloud9 rotate credentials (secret/access key) 
+and this is not supported by kubectl, because it detect/match the exact access key that represent 
+IAM User that is used to initially create the cluster.
+If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials
+
 4. install kubectl
   > mkdir $HOME/bin
   > curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
