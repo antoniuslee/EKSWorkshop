@@ -3,9 +3,9 @@ EKS Deployment step
 STEP1: EKS CLUSTER CREATION
 1. Create EKS Service Role
 2. Create VPC using CloudFormation Template
-  <pre>
+  <code>
   https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/amazon-eks-vpc-sample.yaml
-  </pre>
+  </code>
 3. Go to EKS Console and Create EKS Cluster
 
 -- Prepare a machine (probably EC2) to install kubectl and manage your cluster
