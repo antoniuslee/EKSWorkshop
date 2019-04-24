@@ -1,4 +1,7 @@
-EKS Deployment step
+EKS Deployment on AWS
+The purpose of this simple workshop is to provide guide as a starting of your Kubernates Journey on top of AWS.
+After setting up your EKS Cluster, we will deploy a microservices e-Commerce contributed by WeaveWorks to our EKS Cluster 
+and try out AutoScaling features (Manual and Horizontal Pods AutoScale).
 
 STEP1: EKS CLUSTER CREATION
 1. Create EKS Service Role
