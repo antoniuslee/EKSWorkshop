@@ -18,20 +18,22 @@ IAM User that is used to initially create the cluster.
 If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials
 
 ### 4. install kubectl
-   `mkdir $HOME/bin
-   curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
-   chmod +x ./kubectl
-   cp ./kubectl $HOME/bin/kubectl
-   export PATH=$HOME/bin:$PATH
-   echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-   kubectl version --client`
+   `mkdir $HOME/bin`
+   `curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl`
+   `chmod +x ./kubectl`
+   `cp ./kubectl $HOME/bin/kubectl`
+   `export PATH=$HOME/bin:$PATH`
+   `echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc`
+   `kubectl version --client`
 ### 5. Install IAM Authenticator -> this is to allow us to manage EKS Cluster using our IAM identity
-   `curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
+   ```bash
+   curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
    chmod +x ./aws-iam-authenticator
    cp ./aws-iam-authenticator $HOME/bin
    export PATH=$HOME/bin:$PATH
    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-   aws-iam-authenticator help`
+   aws-iam-authenticator help
+   ```
 6. Configure kubectl for EKS
    `aws eks update-kubeconfig --name <EKS CLuster Name>`
   Test your kubectl command
