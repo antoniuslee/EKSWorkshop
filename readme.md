@@ -29,7 +29,7 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
    kubectl version --client
    ```
-### 5. Install IAM Authenticator -> this is to allow us to manage EKS Cluster using our IAM identity
+#### 5. Install IAM Authenticator -> this is to allow us to manage EKS Cluster using our IAM identity
    ```bash
    curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
    chmod +x ./aws-iam-authenticator
@@ -38,7 +38,7 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
    aws-iam-authenticator help
    ```
-6. Configure kubectl for EKS
+#### 6. Configure kubectl for EKS
    ```bash
    aws eks update-kubeconfig --name <EKS CLuster Name>
    ```
@@ -48,7 +48,7 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
    ```
 
 ## STEP2: DEPLOYING WORKER NODES INTO CLUSTER
-### 1. Worker Nodes CloudFormation Template
+#### 1. Worker Nodes CloudFormation Template
   ```
   https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-nodegroup.yaml
   ```
@@ -67,7 +67,7 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
     KeyName: EC2KeyPair to SSH to the node
   ```
   Proceed with Stack creation, once completed, go to "Output" and get "NodeInstanceRole" ARN for next step
-### 2. Worker Nodes to join EKS Cluster
+#### 2. Worker Nodes to join EKS Cluster
   In order for the worker nodes to join EKS Cluster, we need to use "AWS Authenticator Configuration Map"
   Download
    ```bash
@@ -80,15 +80,15 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
   ```
 
 ## STEP3: DEPLOY YOUR MICROSERVICES E-COMMERCE & WATCH IT IN ACTION!
-### 1. Install Git
+#### 1. Install Git
   ```
   sudo yum install git
   ```
-### 2. Switch to home directory and clone Microservice repo
+#### 2. Switch to home directory and clone Microservice repo
   ```
   git clone https://github.com/antoniuslee/microservices-demo
   ```
-### 3. Install Microservice Application to the Cluster
+#### 3. Install Microservice Application to the Cluster
   Create namespace for the application
   ```
   kubectl create namespace sock-shop
@@ -105,7 +105,7 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
   ```
   kubectl get pods -n sock-shop -w
   ```
-### 4. Access Microservice Application
+#### 4. Access Microservice Application
   List services in the application
   ```
    kubectl get services -n sock-shop
@@ -119,47 +119,47 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
   ```
   *If you can't access, please check your security group for worker nodes to ensure port 30080 accessible from the internet
 
-### 5. Try out your MicroService Application (e.g. Create an account, login, browse products, add product to cart, view cart and checkout etc)
+#### 5. Try out your MicroService Application (e.g. Create an account, login, browse products, add product to cart, view cart and checkout etc)
 
 ## OPTIONAL
 ### MANUAL SCALING MICROSERVICES
-### 1. List deployments
+#### 1. List deployments
   ``` 
   kubectl get deployments -n sock-shop
   ```
-### 2. List deployment and pods
+#### 2. List deployment and pods
   ```bash
   kubectl get deployments front-end -n sock-shop
   kubectl get pods -n sock-shop
   ```
-### 3. Get additional information about deployments
+#### 3. Get additional information about deployments
  ```
  kubectl describe deployments front-end -n sock-shop
  ```
-### 4. Scale directly from command line
+#### 4. Scale directly from command line
   ```
   kubectl scale deployment/front-end --replicas=3 -n sock-shop
   ```
-### 5. List deployment and pods
+#### 5. List deployment and pods
   ```bash 
   kubectl get deployments front-end -n sock-shop
   kubectl get pods -n sock-shop
   ```
 
 ## AUTO SCALING MICROSERVICES using HPA (Horizontal Pod AutoScaler)
-### 1. List current deployments
+#### 1. List current deployments
   ```
   kubectl get deployments front-end -n sock-shop
   ```
-### 2. Create Horizontal Pod Autoscaler for a deployment
+#### 2. Create Horizontal Pod Autoscaler for a deployment
   ```
   kubectl autoscale deployment front-end -n sock-shop --min 2 --max 6 --cpu-percent 65
   ```
-### 3. List Horizontal Pod Autoscaler
+#### 3. List Horizontal Pod Autoscaler
   ```
   kubectl get hpa -n sock-shop
   ```
-### 4. Delete HPA
+#### 4. Delete HPA
   ```
   kubectl delete hpa -n sock-shop <HPA>
   ```
