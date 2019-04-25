@@ -117,9 +117,11 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
   Access the application using the IP of one of the cluster nodes and the port from the "NodePort" service
   ``` http://<IP_ADDRESS>:30080
   ```
-  *If you can't access, please check your security group for worker nodes to ensure port 30080 accessible from the internet
+  
+  If you can't access, please check your security group for worker nodes to ensure port 30080 accessible from the internet
 
 #### 5. Try out your MicroService Application (e.g. Create an account, login, browse products, add product to cart, view cart and checkout etc)
+
 
 ## OPTIONAL
 ### MANUAL SCALING MICROSERVICES
