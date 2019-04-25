@@ -72,21 +72,29 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
   Download
     > curl -O https:/amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/aws-auth-cm.yaml
   Edit the downloaded yaml file, add in NodeInstanceRole from previous Step 2.1
-  > kubectl apply -f aws-auth-cm.yaml
-  > kubectl get nodes --watch
+  ```bash
+   kubectl apply -f aws-auth-cm.yaml
+   kubectl get nodes --watch
+  ```
 
 STEP3: DEPLOY YOUR MICROSERVICES E-COMMERCE & WATCH IT IN ACTION!
 1. Install Git
   > sudo yum install git
 2. Switch to home directory and clone Microservice repo
-  > git clone https://github.com/antoniuslee/microservices-demo
+  ```
+  git clone https://github.com/antoniuslee/microservices-demo
+  ```
 3. Install Microservice Application to the Cluster
   Create namespace for the application
-  > kubectl create namespace sock-shop
+  ```
+  kubectl create namespace sock-shop
+  ```
   Install microservice application under "sock-shop" namespace
-  > kubectl -n sock-shop create -f microservices-demo/deploy/kubernetes/complete-demo.yaml
+  ```
+   kubectl -n sock-shop create -f microservices-demo/deploy/kubernetes/complete-demo.yaml
+  ```
   List pods for newly created application
-  > kubectl get pods -n sock-shop
+  ``` kubectl get pods -n sock-shop ```
   or watch them in real time
   > kubectl get pods -n sock-shop -w
 4. Access Microservice Application
