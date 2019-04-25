@@ -1,13 +1,13 @@
-EKS Deployment on AWS
+#EKS Deployment on AWS
 The purpose of this simple workshop is to provide guide as a starting of your Kubernates Journey on top of AWS.
 After setting up your EKS Cluster, we will deploy a microservices e-Commerce contributed by WeaveWorks to our EKS Cluster 
 and try out AutoScaling features (Manual and Horizontal Pods AutoScale).
 
-STEP1: EKS CLUSTER CREATION
-1. Create EKS Service Role
-2. Create VPC using CloudFormation Template
-  https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/amazon-eks-vpc-sample.yaml
-3. Go to EKS Console and Create EKS Cluster
+## STEP1: EKS CLUSTER CREATION
+###1. Create EKS Service Role
+###2. Create VPC using CloudFormation Template
+  `https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/amazon-eks-vpc-sample.yaml`
+###3. Go to EKS Console and Create EKS Cluster
 
 Next step onwards is to prepare a client machine to install kubectl and manage your EKS Cluster/WorkerNodes, 
 you can use your laptop, or using EC2 or simplest one is Cloud9
@@ -18,13 +18,13 @@ IAM User that is used to initially create the cluster.
 If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials
 
 4. install kubectl
-  > mkdir $HOME/bin
-  > curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
-  > chmod +x ./kubectl
-  > cp ./kubectl $HOME/bin/kubectl
-  > export PATH=$HOME/bin:$PATH
-  > echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-  > kubectl version --client
+   `mkdir $HOME/bin
+   curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
+   chmod +x ./kubectl
+   cp ./kubectl $HOME/bin/kubectl
+   export PATH=$HOME/bin:$PATH
+   echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+   kubectl version --client`
 5. Install IAM Authenticator -> this is to allow us to manage EKS Cluster using our IAM identity
   > curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/aws-iam-authenticator
   > chmod +x ./aws-iam-authenticator
