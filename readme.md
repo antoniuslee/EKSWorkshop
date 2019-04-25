@@ -4,12 +4,12 @@ After setting up your EKS Cluster, we will deploy a microservices e-Commerce con
 and try out AutoScaling features (Manual and Horizontal Pods AutoScale).
 
 ## STEP1: EKS CLUSTER CREATION
-### 1. Create EKS Service Role
-### 2. Create VPC using CloudFormation Template
+#### 1. Create EKS Service Role
+#### 2. Create VPC using CloudFormation Template
   ```
   https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/amazon-eks-vpc-sample.yaml
   ```
-### 3. Go to EKS Console and Create EKS Cluster
+#### 3. Go to EKS Console and Create EKS Cluster
 
 Next step onwards is to prepare a client machine to install kubectl and manage your EKS Cluster/WorkerNodes, 
 you can use your laptop, or using EC2 or simplest one is Cloud9
@@ -19,7 +19,7 @@ and this is not supported by kubectl, because it detect/match the exact access k
 IAM User that is used to initially create the cluster.
 If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials
 
-### 4. install kubectl
+#### 4. install kubectl
    ```bash
    mkdir $HOME/bin
    curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.10.3/2018-07-26/bin/linux/amd64/kubectl
