@@ -6,7 +6,9 @@ and try out AutoScaling features (Manual and Horizontal Pods AutoScale).
 ## STEP1: EKS CLUSTER CREATION
 ### 1. Create EKS Service Role
 ### 2. Create VPC using CloudFormation Template
-  `https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/amazon-eks-vpc-sample.yaml`
+  ```
+  https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2019-02-11/amazon-eks-vpc-sample.yaml
+  ```
 ### 3. Go to EKS Console and Create EKS Cluster
 
 Next step onwards is to prepare a client machine to install kubectl and manage your EKS Cluster/WorkerNodes, 
@@ -41,14 +43,17 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
    aws eks update-kubeconfig --name <EKS CLuster Name>
    ```
   Test your kubectl command
-   `bash
+   ```bash
    kubectl cluster-info
-   `
+   ```
 
 ## STEP2: DEPLOYING WORKER NODES INTO CLUSTER
 1. Worker Nodes CloudFormation Template
+  ```
   https://amazon-eks.s3-us-west-2.amazonaws.com/cloudformation/2018-11-07/amazon-eks-nodegroup.yaml
+  ```
   Specify:
+  ```
     StackName: e.g. EKS-WorkerNodes
     ClusterName: e.g. EKSCluster
     ClusterControlPlaneSG: <find EKS-VPC-ControlPlaneSecurityGroup>
@@ -60,6 +65,7 @@ If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off
     VPCID: <Select VPC created using CloudFormation Template in STEP1.2>
     Subnets: <Select all 3 "EKS-VPC" available subnets created using CloudFormation Template in STEP1.2>
     KeyName: EC2KeyPair to SSH to the node
+  ```
   Proceed with Stack creation, once completed, go to "Output" and get "NodeInstanceRole" ARN for next step
 2. Worker Nodes to join EKS Cluster
   In order for the worker nodes to join EKS Cluster, we need to use "AWS Authenticator Configuration Map"
