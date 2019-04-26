@@ -175,3 +175,6 @@ to configure your credentials and region where you run EKS Cluster.
 ## ADDITIONAL NOTES;
 Explore eksctl, a much easier way to deploy EKS Cluster in single command on AWS!
 > https://eksctl.io
+
+Future enhancement list:
+- to include kubernates official dasboard
