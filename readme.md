@@ -181,4 +181,4 @@ AWS QuickStart to create EKS Cluster
 
 Future enhancement list:
 - to include kubernates official dasboard
-- EKS IAM user onboarding/management
+- EKS IAM user onboarding/management https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
