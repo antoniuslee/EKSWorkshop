@@ -17,7 +17,13 @@ you can use your laptop, or using EC2 or simplest one is Cloud9
 IMPORTANT! If you Cloud9 by default STEP2 will failed because Cloud9 rotate credentials (secret/access key) 
 and this is not supported by kubectl, because it detect/match the exact access key that represent 
 IAM User that is used to initially create the cluster.
-If you use Cloud9, then ensure you go to Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials
+If you use Cloud9, then ensure you go to 
+> Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials" 
+and go to your Cloud9 terminal and run 
+'''bash
+  aws configure
+'''
+to configure your credentials and region where you run EKS Cluster.
 
 #### 4. install kubectl
    ```bash
