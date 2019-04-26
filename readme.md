@@ -20,9 +20,9 @@ IAM User that is used to initially create the cluster.
 If you use Cloud9, then ensure you go to 
 > Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials" 
 and go to your Cloud9 terminal and run 
-'''bash
+```bash
   aws configure
-'''
+```
 to configure your credentials and region where you run EKS Cluster.
 
 #### 4. install kubectl
