@@ -19,7 +19,7 @@ and this is not supported by kubectl, because it detect/match the exact access k
 IAM User that is used to initially create the cluster.
 If you use Cloud9, then ensure you go to 
 > Preferences -> AWS Settings -> Turn off "AWS managed temporary credentials" 
-and go to your Cloud9 terminal and run 
+and back to your Cloud9 terminal and run 
 ```bash
   aws configure
 ```
